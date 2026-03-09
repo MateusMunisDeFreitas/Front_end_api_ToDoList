@@ -23,8 +23,6 @@ export default function Login() {
       }
 
       const token = await authAPI.login(nome, senha);
-
-      console.log(token.menssage);
       
       // Armazenar token e nome do usuário
       localStorage.setItem('userName', nome);
@@ -32,8 +30,9 @@ export default function Login() {
       
       // Fazer requisição para pegar as tarefas e extrair user_id
       // Por enquanto, vamos usar o nome como identificador
-      localStorage.setItem('userNome', nome);
 
+      // localStorage.setItem('userNome', nome);
+    
       navigate('/home');
     } catch (err) {
       setError(err.message || 'Login failed');

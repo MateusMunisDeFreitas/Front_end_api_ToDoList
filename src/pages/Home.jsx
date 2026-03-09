@@ -7,7 +7,7 @@ import '../styles/Home.css';
 
 export default function Home() {
   const [tarefas, setTarefas] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); 
   const [error, setError] = useState('');
   const [editingId, setEditingId] = useState(null);
   const [editingText, setEditingText] = useState('');
@@ -34,8 +34,8 @@ export default function Home() {
     } catch (err) {
       setError(err.message);
       if (err.message.includes('401') || err.message.includes('Token')) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('userName');
+        // localStorage.removeItem('token');
+        // localStorage.removeItem('userName');
         navigate('/login');
       }
     } finally {
