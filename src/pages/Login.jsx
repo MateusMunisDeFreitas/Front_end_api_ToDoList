@@ -17,7 +17,7 @@ export default function Login() {
 
     try {
       if (!nome || !senha) {
-        setError('Please fill in all fields');
+        setError('Por favor preencha todos os campos');
         setLoading(false);
         return;
       }
@@ -28,11 +28,6 @@ export default function Login() {
       localStorage.setItem('userName', nome);
       localStorage.setItem('id', token.user_id);
       localStorage.setItem('token', token.menssage);
-      
-      // Fazer requisição para pegar as tarefas e extrair user_id
-      // Por enquanto, vamos usar o nome como identificador
-
-      // localStorage.setItem('userNome', nome);
     
       navigate('/home');
     } catch (err) {
