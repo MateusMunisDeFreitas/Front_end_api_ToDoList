@@ -15,6 +15,7 @@ export default function Home() {
 
   const userName = localStorage.getItem('userName') || 'User';
   const token = localStorage.getItem('token');
+  const id = localStorage.getItem('id');
 
   useEffect(() => {
     if (!token) {
@@ -29,8 +30,19 @@ export default function Home() {
     try {
       setLoading(true);
       setError('');
-      const data = await tarefasAPI.getTarefas();
-      setTarefas(Array.isArray(data) ? data : []);
+      const data = await tarefasAPI.getTarefas(id);
+
+      // make sure each tarefa has an `id` property coming from the backend
+      // some APIs may return tasks without an explicit id field, so we
+      // fall back to any existing identifier or the array index.
+      const tarefasComId = Array.isArray(data)
+        ? data.map((t, idx) => ({
+            ...t,
+            id: t.id ?? t.task_id ?? idx,
+          }))
+        : [];
+
+      setTarefas(tarefasComId);
     } catch (err) {
       setError(err.message);
       if (err.message.includes('401') || err.message.includes('Token')) {
@@ -55,14 +67,22 @@ export default function Home() {
       
       // Nota: A API aceita user_id. Você pode precisar ajustar isso
       // dependendo de como a API retorna o user_id
-      const newTarefa = await tarefasAPI.createTarefa(descricao, 1);
-      
-      setTarefas([...tarefas, newTarefa]);
+      const newTarefa = await tarefasAPI.createTarefa(descricao, Number(id));
+
+      // ensure the returned task includes an id so future updates/deletes
+      // can reference it directly
+      const tarefaComId = {
+        ...newTarefa,
+        id: newTarefa.id ?? newTarefa.task_id,
+      };
+
+      setTarefas([...tarefas, tarefaComId]);
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
+    await loadTarefas();
   };
 
   const handleDeleteTarefa = async (id) => {

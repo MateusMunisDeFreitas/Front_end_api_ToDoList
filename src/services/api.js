@@ -56,9 +56,9 @@ export const authAPI = {
 // TAREFAS
 export const tarefasAPI = {
   // Listar todas as tarefas do usuário
-  async getTarefas() {
-    return makeRequest('/home/tarefas', {
-      method: 'GET',
+  async getTarefas(id) {
+    return makeRequest(`/home/tarefas?id=${id}`, {
+      method: 'GET'
     });
   },
 
