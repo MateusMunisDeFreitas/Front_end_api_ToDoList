@@ -18,30 +18,29 @@ export default function SignUp() {
 
     try {
       if (!nome || !senha || !confirmSenha) {
-        setError('Please fill in all fields');
+        setError('Por favor preencha todos os campos');
         setLoading(false);
         return;
       }
 
       if (senha !== confirmSenha) {
-        setError('Passwords do not match');
+        setError('As senhas não coincidem');
         setLoading(false);
         return;
       }
-
+ 
       if (senha.length < 6) {
-        setError('Password must be at least 6 characters');
+        setError('A senha deve ter pelo menos 6 caracteres');
         setLoading(false);
         return;
       }
 
       await authAPI.signup(nome, senha);
-      
       // Após criar conta, redirecionar para login
-      navigate('/login', { state: { message: 'Account created successfully. Please log in.' } });
+      navigate('/login', { state: { message: 'Conta criada com sucesso. Faça login.' } });
     } catch (err) {
-      setError(err.message || 'Sign up failed');
-      console.error('SignUp error:', err);
+      setError(err.message || 'Falha na inscrição');
+      console.error('Erro de inscrição:', err);
     } finally {
       setLoading(false);
     }

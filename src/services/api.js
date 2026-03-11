@@ -4,14 +4,14 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 const makeRequest = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
   
-  const headers = {
+  let headers = {
     'Content-Type': 'application/json',
     ...options.headers,
   };
 
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
-  }
+  };
 
   const response = await fetch(`${API_URL}${endpoint}`, {
     ...options,
@@ -31,7 +31,7 @@ const makeRequest = async (endpoint, options = {}) => {
 export const authAPI = {
   // Sign Up - criar novo usuário 
   async signup(nome, senha) {
-    return makeRequest('/signup', {
+    return makeRequest('/singup', {
       method: 'POST',
       body: JSON.stringify({ nome, senha }),
     });
