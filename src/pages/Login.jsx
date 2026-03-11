@@ -26,6 +26,7 @@ export default function Login() {
       
       // Armazenar token e nome do usuário
       localStorage.setItem('userName', nome);
+      localStorage.setItem('id', token.user_id);
       localStorage.setItem('token', token.menssage);
       
       // Fazer requisição para pegar as tarefas e extrair user_id
