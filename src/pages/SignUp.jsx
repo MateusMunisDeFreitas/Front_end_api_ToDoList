@@ -55,37 +55,37 @@ export default function SignUp() {
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="nome">Username</label>
+            <label htmlFor="nome">Usuário</label>
             <input
               type="text"
               id="nome"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              placeholder="Choose a username"
+              placeholder="Escolha um nome de usuário"
               disabled={loading}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="senha">Password</label>
+            <label htmlFor="senha">Senha</label>
             <input
               type="password"
               id="senha"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              placeholder="Enter a password"
+              placeholder="Insira a senha"
               disabled={loading}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="confirmSenha">Confirm Password</label>
+            <label htmlFor="confirmSenha">Confirme a senha</label>
             <input
               type="password"
               id="confirmSenha"
               value={confirmSenha}
               onChange={(e) => setConfirmSenha(e.target.value)}
-              placeholder="Confirm your password"
+              placeholder="Confirme sua senha"
               disabled={loading}
             />
           </div>
@@ -96,7 +96,7 @@ export default function SignUp() {
         </form>
 
         <p className="auth-link">
-          Already have an account? <Link to="/login">Login</Link>
+          Já tem uma conta? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

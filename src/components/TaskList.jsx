@@ -14,7 +14,7 @@ export default function TaskList({
   if (tarefas.length === 0) {
     return (
       <div className="task-list-empty">
-        <p>No tasks yet. Create one to get started!</p>
+        <p>Ainda não há tarefas. Crie uma para começar!</p>
       </div>
     );
   }

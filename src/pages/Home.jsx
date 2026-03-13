@@ -147,7 +147,7 @@ export default function Home() {
       <header className="home-header">
         <div className="header-content">
           <h1>My Todo List</h1>
-          <p className="user-info">Welcome, <strong>{userName}</strong></p>
+          <p className="user-info">Bem-vindo, <strong>{userName}</strong></p>
         </div>
         <button onClick={handleLogout} className="btn-logout">Logout</button>
       </header>
@@ -161,7 +161,7 @@ export default function Home() {
         />
 
         {loading ? (
-          <div className="loading">Loading tasks...</div>
+          <div className="loading">Carregando tarefas...</div>
         ) : (
           <TaskList 
             tarefas={tarefas}

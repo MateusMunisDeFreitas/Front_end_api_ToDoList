@@ -32,7 +32,7 @@ export default function TaskItem({
               onClick={onCancelEdit}
               className="btn-cancel"
             >
-              Cancel
+              Cancelar
             </button>
           </div>
         </div>
@@ -44,13 +44,13 @@ export default function TaskItem({
               onClick={() => onStartEdit(tarefa.id, tarefa.descricao)}
               className="btn-edit"
             >
-              Edit
+              Editar
             </button>
             <button
               onClick={() => onDeleteTarefa(tarefa.id)}
               className="btn-delete"
             >
-              Delete
+              Deletar
             </button>
           </div>
         </>

@@ -29,7 +29,7 @@ export default function TaskForm({ onAddTarefa, disabled }) {
           disabled={disabled || !descricao.trim()}
           className="btn-add"
         >
-          Add Task
+          Adicionar tarefa
         </button>
       </div>
     </form>

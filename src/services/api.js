@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL
 
 // Função auxiliar para fazer requisições
 const makeRequest = async (endpoint, options = {}) => {

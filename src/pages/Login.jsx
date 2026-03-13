@@ -47,25 +47,25 @@ export default function Login() {
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="nome">Username</label>
+            <label htmlFor="nome">Usuário</label>
             <input
               type="text"
               id="nome"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              placeholder="Enter your username"
+              placeholder="Insirar seu usuário"
               disabled={loading}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="senha">Password</label>
+            <label htmlFor="senha">Senha</label>
             <input
               type="password"
               id="senha"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              placeholder="Enter your password"
+              placeholder="Insirar sua senha"
               disabled={loading}
             />
           </div>
@@ -76,7 +76,7 @@ export default function Login() {
         </form>
 
         <p className="auth-link">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
+          Não tem uma conta? <Link to="/signup">Sign Up</Link>
         </p>
       </div>
     </div>
